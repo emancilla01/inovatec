@@ -5,55 +5,51 @@
   <title>Hover Image Test</title>
   <link rel="stylesheet" href="style.css">  
   <!-- git repository https://github.com/emancilla01/inovatec.git -->  
+  <!-- version que se esta trabajando actualmente: https://github.com/emancilla01/inovatec/tree/shared? -->
 </head>
 <body>
-    <div class="mapa" id="mapa">    
-      <div class="map-content" id="mapContent" >  
-        <div class="legend">
-          <ul>
-            <li data-target="building-9">9 - Edificio K</li>
-            <li data-target="building-10">10 - Laboratorio de electrónica</li>
-            <li data-target="building-11">11 - Sistemas y Computación</li>
-            <li data-target="building-12">12 - Laboratorio Cómputo Industrial</li>
-          </ul>
-        </div>
-    
-    <div class="edificio-container" id="building-9" style="top: 400px; left: 400px;">
-      <div class="edificio" style="width: 150px; height: 70px;">9</div>
-      <img src="imagenes/p9.png" alt="Edificio 9" class="hover-image">
-    </div>
-    <div class="edificio-container" id="building-10" style="top: 300px; left: 325px;">
-      <div class="edificio" style="width: 70px; height: 60px;">10</div>
-      <img src="imagenes/p10.png" alt="Edificio 10" class="hover-image">
-    </div>
-    <div class="edificio-container" id="building-11" style="top: 200px; left: 315px;">
-      <div class="edificio" style="width: 80px; height: 70px;">11</div>
-      <img src="imagenes/p11.png" alt="Edificio 11" class="hover-image">
-    </div>
-    <div class="edificio-container" id="building-12" style="top: 155px; left: 320px;">
-      <div class="edificio" style="width: 75px; height: 30px;">12</div>
-      <img src="imagenes/p12.png" alt="Edificio 12" class="hover-image">
-    </div>
-    <div class="etiqueta estacionamiento-izquierda">estacionamiento</div>
-    <div class="etiqueta estacionamiento-derecha rotada">estacionamiento</div>
-    <div class="etiqueta estacionamiento-derecha-superior rotada">estacionamiento</div>
-    </div>    
-    </div>
-
-    <div class="classroom-panel" id="classroomPanel">
-      <button id="closePanelBtn">✖</button>
-      <h3 id="panelTitle">Salones</h3>
-      <div class="rooms">
-        <!-- placeholder rooms -->
-        <div class="room">A1</div>
-        <div class="room">A2</div>
-        <div class="room">A3</div>
-        <div class="room">A4</div>        
+  <div class="mapa" id="mapa">    
+    <div class="map-content" id="mapContent" >  
+      <div class="legend">
+        <ul>
+          <li data-target="building-9">9 - Edificio K</li>
+          <li data-target="building-10">10 - Laboratorio de electrónica</li>
+          <li data-target="building-11">11 - Sistemas y Computación</li>
+          <li data-target="building-12">12 - Laboratorio Cómputo Industrial</li>
+        </ul>
+      </div>    
+      <div class="edificio-container" id="building-9" style="top: 400px; left: 400px;">
+        <div class="edificio" style="width: 150px; height: 70px;">9</div>
+        <img src="imagenes/p9.png" alt="Edificio 9" class="hover-image">
       </div>
+      <div class="edificio-container" id="building-10" style="top: 300px; left: 325px;">
+        <div class="edificio" style="width: 70px; height: 60px;">10</div>
+        <img src="imagenes/p10.png" alt="Edificio 10" class="hover-image">
+      </div>
+      <div class="edificio-container" id="building-11" style="top: 200px; left: 315px;">
+        <div class="edificio" style="width: 80px; height: 70px;">11</div>
+        <img src="imagenes/p11.png" alt="Edificio 11" class="hover-image">
+      </div>
+      <div class="edificio-container" id="building-12" style="top: 155px; left: 320px;">
+        <div class="edificio" style="width: 75px; height: 30px;">12</div>
+        <img src="imagenes/p12.png" alt="Edificio 12" class="hover-image">
+      </div>
+      <div class="etiqueta estacionamiento-izquierda">estacionamiento</div>
+      <div class="etiqueta estacionamiento-derecha rotada">estacionamiento</div>
+      <div class="etiqueta estacionamiento-derecha-superior rotada">estacionamiento</div>
+    </div>    
+  </div>
+  <div class="classroom-panel" id="classroomPanel">
+    <button id="closePanelBtn">✖</button>
+    <h3 id="panelTitle">Salones</h3>
+    <div class="rooms">
+      <!-- placeholder rooms -->
+      <div class="room">A1</div>
+      <div class="room">A2</div>
+      <div class="room">A3</div>
+      <div class="room">A4</div>        
     </div>
-    
-
+  </div>
 </body>
 <script src="funciones.js"></script>
-
 </html>

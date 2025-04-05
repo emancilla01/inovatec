@@ -1,3 +1,4 @@
+// version que se esta trabajando actualmente: https://github.com/emancilla01/inovatec/tree/shared? 
 
   const buildingNames = {
   'building-9': 'Edificio K',

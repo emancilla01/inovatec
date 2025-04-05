@@ -1,13 +1,12 @@
+/* version que se esta trabajando actualmente: https://github.com/emancilla01/inovatec/tree/shared? */
+
 body {
   margin: 0;
   background: #999;
-  display: flex;
-  /* justify-content: flex-start; */
-  /* align-items: flex-start; */
+  display: flex;  
   padding-top: 30px;
   font-family: Arial, sans-serif;
 }
-
 .mapa {
   position: relative;
   left: 200px;
@@ -18,16 +17,10 @@ body {
   overflow: hidden;      
   transition: transform 0.3s ease;
 }
-
 .edificio-container {
   position: absolute;
-  /* top: 520px;
-  left: 500px; */
 }
-
-.edificio {
-  /* width: 85px;
-  height: 45px; */
+.edificio {  
   background-color: #f4ff56;
   color: black;
   font-weight: bold;
@@ -37,7 +30,6 @@ body {
   box-sizing: border-box;
   box-shadow: 2px 2px 5px rgba(0,0,0,0.3);
 }
-
 .hover-image {
   position: absolute;
   top: -110px;
@@ -48,7 +40,6 @@ body {
   background: white;
   z-index: 100;
 }
-
 .edificio-container:hover .hover-image {
   display: block;
 }
@@ -58,21 +49,19 @@ font-size: 14px;
 font-weight: bold;
 color: #222;
 }
-
 .estacionamiento-izquierda {
 bottom: 40px;
 left: 40px;
 }
-
 .estacionamiento-derecha {
 top: 60%;
-right: -30px; /* adjust as needed to push it slightly outside */
+right: -30px;     /* adjust as needed to push it slightly outside */
 transform: rotate(90deg) translateY(-50%);
 transform-origin: left center;
 }
 .estacionamiento-derecha-superior {
 top: 20px;
-right: -30px; /* ajusta si se sale mucho */
+right: -30px;     /* ajusta si se sale mucho */
 transform: rotate(90deg);
 transform-origin: left top;
 }
@@ -88,13 +77,11 @@ max-height: 180px;
 overflow-y: auto;
 z-index: 1000;
 }
-
 .legend ul {
 margin: 0;
 padding: 0;
 list-style: none;
 }
-
 .legend li {
 margin-bottom: 5px;
 cursor: pointer;
@@ -102,7 +89,6 @@ padding: 4px 8px;
 border-radius: 4px;
 transition: background 0.2s;
 }
-
 .legend li:hover {
 background-color: #f6f649;
 }
@@ -117,20 +103,16 @@ height: 606px;
 background: #fff;
 border: 2px solid black;
 padding: 10px;
-/*display: none; /* initially hidden */ 
-opacity: 0;     /*test*/
-pointer-events: none;   /*test*/
-transition: opacity 0.3s ease;    /*test*/
+opacity: 0;     
+pointer-events: none;  
+transition: opacity 0.3s ease; 
 box-sizing: border-box;
 z-index: 100;
-
 }
-/* test */
 .classroom-panel.visible {
 opacity: 1;
 pointer-events: auto;
 }
-/* test */
 .classroom-panel h3 {
 margin-top: 0;
 font-size: 16px;
@@ -157,9 +139,6 @@ width: 100%;
 height: 100%;
 transition: transform 0.3s ease;
 }
-/* #mapa {
-transition: transform 0.3s ease;
-} */
 #closePanelBtn {
 position: absolute;
 top: 8px;
