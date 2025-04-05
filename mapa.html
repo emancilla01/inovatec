@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Hover Image Test</title>
+  <!-- git repository https://github.com/emancilla01/inovatec.git -->
+  <style>
+    body {
+      margin: 0;
+      background: #999;
+      display: flex;
+      justify-content: flex-start;
+      align-items: flex-start;
+      padding-top: 30px;
+      font-family: Arial, sans-serif;
+    }
+
+    .mapa {
+      /* flex-grow: 1;
+      max-width: calc(100% - 220px);
+      min-width: 600px; */
+      position: relative;
+      /* display: flex; */
+      width: 40%;
+      height: 600px;
+      background: #ccc;
+      border: 3px solid black;
+      overflow: hidden;
+      transition: transform 0.3s ease;
+    }
+
+    .edificio-container {
+      position: absolute;
+      /* top: 520px;
+      left: 500px; */
+    }
+
+    .edificio {
+      /* width: 85px;
+      height: 45px; */
+      background-color: #7dc67d;
+      color: black;
+      font-weight: bold;
+      text-align: center;
+      line-height: 45px;
+      border: 2px solid #000;
+      box-sizing: border-box;
+      box-shadow: 2px 2px 5px rgba(0,0,0,0.3);
+    }
+
+    .hover-image {
+      position: absolute;
+      top: -110px;
+      left: 90px;
+      width: 150px;
+      display: none;
+      border: 2px solid black;
+      background: white;
+      z-index: 100;
+    }
+
+    .edificio-container:hover .hover-image {
+      display: block;
+    }
+    .etiqueta {
+      position: absolute;
+      font-size: 14px;
+      font-weight: bold;
+      color: #222;
+    }
+
+    .estacionamiento-izquierda {
+      bottom: 40px;
+      left: 40px;
+    }
+
+    .estacionamiento-derecha {
+      top: 60%;
+      right: -30px; /* adjust as needed to push it slightly outside */
+      transform: rotate(90deg) translateY(-50%);
+      transform-origin: left center;
+    }
+    .estacionamiento-derecha-superior {
+      top: 20px;
+      right: -30px; /*ajusta si se sale mucho */
+      transform: rotate(90deg);
+      transform-origin: left top;
+    }
+    .legend {
+      position: absolute;
+      top: 10px;
+      left: 10px;
+      background: rgba(255, 255, 255, 0.9);
+      padding: 10px;
+      border: 2px solid #000;
+      font-size: 14px;
+      max-height: 180px;
+      overflow-y: auto;
+      z-index: 1000;
+    }
+
+    .legend ul {
+      margin: 0;
+      padding: 0;
+      list-style: none;
+    }
+
+    .legend li {
+      margin-bottom: 5px;
+      cursor: pointer;
+      padding: 4px 8px;
+      border-radius: 4px;
+      transition: background 0.2s;
+    }
+
+    .legend li:hover {
+      background-color: #f6f649;
+    }
+    .highlight .edificio {
+      outline: 3px solid red;
+      box-shadow: 0 0 10px red;
+    }
+    .classroom-panel {
+      width: 220px;
+      height: 600px;
+      background: #fff;
+      border-left: 2px solid black;
+      padding: 10px;
+      display: block;
+      visibility: hidden;
+      opacity: 0;
+      transition: opacity 0.3s ease;
+      box-sizing: border-box;
+      z-index: 100;
+    }
+
+
+    .classroom-panel h3 {
+      margin-top: 0;
+      font-size: 16px;
+    }
+
+    .rooms {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-top: 10px;
+    }
+
+    .room {
+      width: 80px;
+      height: 50px;
+      background: #d0e0f0;
+      border: 1px solid #444;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: bold;
+    }
+    .map-content {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      transition: transform 0.3s ease;
+    }
+    #mapa {
+      transition: transform 0.3s ease;
+    }
+    .wrapper {
+      width: 100%;
+      
+      box-sizing: border-box;
+      display: flex;
+    }
+
+
+  </style>
+</head>
+<body>
+  <!-- <div class="wrapper" > -->
+    <div class="mapa"  id="mapa">    
+      <div class="map-content" id="mapContent" >  
+        <div class="legend">
+          <ul>
+            <li data-target="building-9">9 - Edificio K</li>
+            <li data-target="building-10">10 - Laboratorio de electrónica</li>
+            <li data-target="building-11">11 - Sistemas y Computación</li>
+            <li data-target="building-12">12 - Laboratorio Cómputo Industrial</li>
+          </ul>
+        </div>
+      
+        <div class="edificio-container" id="building-9" style="top: 400px; left: 300px;">
+          <div class="edificio" style="width: 150px; height: 70px;">9</div>
+          <img src="imagenes/p9.png" alt="Edificio 9" class="hover-image">
+        </div>
+        <div class="edificio-container" id="building-10" style="top: 300px; left: 225px;">
+          <div class="edificio" style="width: 70px; height: 60px;">10</div>
+          <img src="imagenes/p10.png" alt="Edificio 10" class="hover-image">
+        </div>
+        <div class="edificio-container" id="building-11" style="top: 200px; left: 215px;">
+          <div class="edificio" style="width: 80px; height: 70px;">11</div>
+          <img src="imagenes/p11.png" alt="Edificio 11" class="hover-image">
+        </div>
+        <div class="edificio-container" id="building-12" style="top: 155px; left: 220px;">
+          <div class="edificio" style="width: 75px; height: 30px;">12</div>
+          <img src="imagenes/p12.png" alt="Edificio 12" class="hover-image">
+        </div>
+        <div class="etiqueta estacionamiento-izquierda">estacionamiento</div>
+        <div class="etiqueta estacionamiento-derecha rotada">estacionamiento</div>
+        <div class="etiqueta estacionamiento-derecha-superior rotada">estacionamiento</div>
+      </div>    
+    </div>
+    <div class="classroom-panel" id="classroomPanel">
+      <h3>Salones</h3>
+      <div class="rooms">
+        <!-- placeholder rooms -->
+        <div class="room">A1</div>
+        <div class="room">A2</div>
+        <div class="room">A3</div>
+        <div class="room">A4</div>
+      </div>
+    </div>
+  <!-- </div> -->
+</body>
+<script>
+  const legendItems = document.querySelectorAll('.legend li');
+  const mapGroup = document.getElementById('mapContent');
+
+
+  legendItems.forEach(item => {
+    const targetId = item.getAttribute('data-target');
+    const building = document.getElementById(targetId);
+
+    item.addEventListener('mouseover', () => {
+      if (building) building.classList.add('highlight');
+    });
+
+    item.addEventListener('mouseout', () => {
+      if (building) building.classList.remove('highlight');
+    });
+
+    item.addEventListener('click', () => {
+      if (building) {
+        showClassrooms(building);
+      }
+    });
+  });
+
+  function showClassrooms(buildingElement) {
+    const panel = document.getElementById('classroomPanel');
+    const mapa = document.getElementById('mapa');
+    const panelWidth = panel.offsetWidth;
+    mapa.style.transform = `translateX(-${panelWidth}px)`;
+
+  // show the panel
+  panel.style.visibility = 'visible';
+  panel.style.opacity = '1';
+
+  }
+  
+</script>
+
+</html>

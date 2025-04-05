@@ -1,0 +1,327 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Hover Image Test</title>
+  <!-- git repository https://github.com/emancilla01/inovatec.git -->
+  <style>
+    body {
+      margin: 0;
+      background: #999;
+      display: flex;
+      /* justify-content: flex-start; */
+      /* align-items: flex-start; */
+      padding-top: 30px;
+      font-family: Arial, sans-serif;
+    }
+
+    .mapa {
+      position: relative;
+      left: 200px;
+      width: 60%;
+      height: 600px;
+      background: #0004ec75;
+      border: 3px solid black;
+      overflow: hidden;      
+      transition: transform 0.3s ease;
+    }
+
+    .edificio-container {
+      position: absolute;
+      /* top: 520px;
+      left: 500px; */
+    }
+
+    .edificio {
+      /* width: 85px;
+      height: 45px; */
+      background-color: #f4ff56;
+      color: black;
+      font-weight: bold;
+      text-align: center;
+      line-height: 45px;
+      border: 2px solid #000;
+      box-sizing: border-box;
+      box-shadow: 2px 2px 5px rgba(0,0,0,0.3);
+    }
+
+    .hover-image {
+      position: absolute;
+      top: -110px;
+      left: 90px;
+      width: 150px;
+      display: none;
+      border: 2px solid black;
+      background: white;
+      z-index: 100;
+    }
+
+    .edificio-container:hover .hover-image {
+      display: block;
+    }
+    .etiqueta {
+  position: absolute;
+  font-size: 14px;
+  font-weight: bold;
+  color: #222;
+}
+
+.estacionamiento-izquierda {
+  bottom: 40px;
+  left: 40px;
+}
+
+.estacionamiento-derecha {
+  top: 60%;
+  right: -30px; /* adjust as needed to push it slightly outside */
+  transform: rotate(90deg) translateY(-50%);
+  transform-origin: left center;
+}
+.estacionamiento-derecha-superior {
+  top: 20px;
+  right: -30px; /* ajusta si se sale mucho */
+  transform: rotate(90deg);
+  transform-origin: left top;
+}
+.legend {
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  background: rgba(255, 255, 255, 0.9);
+  padding: 10px;
+  border: 2px solid #000;
+  font-size: 14px;
+  max-height: 180px;
+  overflow-y: auto;
+  z-index: 1000;
+}
+
+.legend ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.legend li {
+  margin-bottom: 5px;
+  cursor: pointer;
+  padding: 4px 8px;
+  border-radius: 4px;
+  transition: background 0.2s;
+}
+
+.legend li:hover {
+  background-color: #f6f649;
+}
+.highlight .edificio {
+  outline: 3px solid red;
+  box-shadow: 0 0 10px red;
+}
+.classroom-panel {
+  position: relative;
+  width: 220px;
+  height: 606px;
+  background: #fff;
+  border: 2px solid black;
+  padding: 10px;
+  /*display: none; /* initially hidden */ 
+    opacity: 0;     /*test*/
+    pointer-events: none;   /*test*/
+    transition: opacity 0.3s ease;    /*test*/
+  box-sizing: border-box;
+  z-index: 100;
+
+}
+/* test */
+.classroom-panel.visible {
+  opacity: 1;
+  pointer-events: auto;
+}
+/* test */
+.classroom-panel h3 {
+  margin-top: 0;
+  font-size: 16px;
+}
+.rooms {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-top: 10px;
+}
+.room {
+  width: 80px;
+  height: 50px;
+  background: #d0e0f0;
+  border: 1px solid #444;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: bold;
+}
+.map-content {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  transition: transform 0.3s ease;
+}
+/* #mapa {
+  transition: transform 0.3s ease;
+} */
+#closePanelBtn {
+  position: absolute;
+  top: 8px;
+  right: 8px;
+  background: crimson;
+  color: white;
+  border: none;
+  border-radius: 3px;
+  padding: 5px 8px;
+  cursor: pointer;
+  font-weight: bold;
+}
+#closePanelBtn:hover {
+  background: darkred;
+}
+
+
+  </style>
+</head>
+<body>
+    <div class="mapa" id="mapa">    
+      <div class="map-content" id="mapContent" >  
+        <div class="legend">
+          <ul>
+            <li data-target="building-9">9 - Edificio K</li>
+            <li data-target="building-10">10 - Laboratorio de electrónica</li>
+            <li data-target="building-11">11 - Sistemas y Computación</li>
+            <li data-target="building-12">12 - Laboratorio Cómputo Industrial</li>
+          </ul>
+        </div>
+    
+    <div class="edificio-container" id="building-9" style="top: 400px; left: 400px;">
+      <div class="edificio" style="width: 150px; height: 70px;">9</div>
+      <img src="imagenes/p9.png" alt="Edificio 9" class="hover-image">
+    </div>
+    <div class="edificio-container" id="building-10" style="top: 300px; left: 325px;">
+      <div class="edificio" style="width: 70px; height: 60px;">10</div>
+      <img src="imagenes/p10.png" alt="Edificio 10" class="hover-image">
+    </div>
+    <div class="edificio-container" id="building-11" style="top: 200px; left: 315px;">
+      <div class="edificio" style="width: 80px; height: 70px;">11</div>
+      <img src="imagenes/p11.png" alt="Edificio 11" class="hover-image">
+    </div>
+    <div class="edificio-container" id="building-12" style="top: 155px; left: 320px;">
+      <div class="edificio" style="width: 75px; height: 30px;">12</div>
+      <img src="imagenes/p12.png" alt="Edificio 12" class="hover-image">
+    </div>
+    <div class="etiqueta estacionamiento-izquierda">estacionamiento</div>
+    <div class="etiqueta estacionamiento-derecha rotada">estacionamiento</div>
+    <div class="etiqueta estacionamiento-derecha-superior rotada">estacionamiento</div>
+    </div>    
+    </div>
+
+    <div class="classroom-panel" id="classroomPanel">
+      <button id="closePanelBtn">✖</button>
+      <h3 id="panelTitle">Salones</h3>
+      <div class="rooms">
+        <!-- placeholder rooms -->
+        <div class="room">A1</div>
+        <div class="room">A2</div>
+        <div class="room">A3</div>
+        <div class="room">A4</div>        
+      </div>
+    </div>
+    
+
+</body>
+<script>
+  const buildingNames = {
+  'building-9': 'Edificio K',
+  'building-10': 'Laboratorio de electrónica',
+  'building-11': 'Sistemas y Computación',
+  'building-12': 'Laboratorio Cómputo Industrial'
+};
+
+  const classroomData = {
+  'building-9': ['K1', 'K2', 'K3', 'K4', 'K5'],
+  'building-10': ['E1', 'E2', 'E3'],
+  'building-11': ['S1', 'S2', 'S3', 'S4'],
+  'building-12': ['CI1', 'CI2']
+};
+  const legendItems = document.querySelectorAll('.legend li');
+  const mapGroup = document.getElementById('mapContent');
+
+
+  legendItems.forEach(item => {
+    const targetId = item.getAttribute('data-target');
+    const building = document.getElementById(targetId);
+
+    item.addEventListener('mouseover', () => {
+      if (building) building.classList.add('highlight');
+    });
+
+    item.addEventListener('mouseout', () => {
+      if (building) building.classList.remove('highlight');
+    });
+
+    item.addEventListener('click', () => {
+      if (building) {
+        showClassrooms(building);
+      }
+    });
+    // Make each building rectangle clickable
+const buildings = document.querySelectorAll('.edificio-container');
+
+buildings.forEach(building => {
+  building.addEventListener('click', () => {
+    showClassrooms(building);
+  });
+});
+
+  });
+
+  function showClassrooms(buildingElement) {
+    const panel = document.getElementById('classroomPanel');
+    const mapa = document.getElementById('mapa');
+    const roomsContainer = panel.querySelector('.rooms');
+
+    // Get classroom list based on clicked building
+  const rooms = classroomData[buildingElement.id] || [];
+
+    // Clear previous rooms
+  roomsContainer.innerHTML = '';
+
+  // Add new room divs
+  rooms.forEach(room => {
+    const roomDiv = document.createElement('div');
+    roomDiv.className = 'room';
+    roomDiv.textContent = room;
+    roomsContainer.appendChild(roomDiv);
+  });
+
+  // Show panel
+  mapa.style.transform = 'translateX(-200px)';
+  panel.classList.add('visible');
+
+
+    mapa.style.transform = 'translateX(-200px)';
+    //panel.style.display = 'block'; // Show the panel when a building is clicked
+    const panelTitle = document.getElementById('panelTitle');
+panelTitle.textContent = 'Salones – ' + (buildingNames[buildingElement.id] || 'Edificio');
+
+    panel.classList.add('visible'); // test Add the visible class to show the panel 
+
+  }
+  document.getElementById('closePanelBtn').addEventListener('click', () => {
+  const panel = document.getElementById('classroomPanel');
+  const mapa = document.getElementById('mapa');
+
+  //panel.style.display = 'none';
+  panel.classList.remove('visible'); // test Remove the visible class to hide the panel
+  mapa.style.transform = 'translateX(0)';
+});
+
+  
+</script>
+
+</html>
