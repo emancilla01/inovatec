@@ -14,6 +14,8 @@
   };
   const legendItems = document.querySelectorAll('.legend li');
   const mapGroup = document.getElementById('mapContent');
+  let currentlyHighlighted = null;
+
 
   legendItems.forEach(item => {
     const targetId = item.getAttribute('data-target');
@@ -23,25 +25,36 @@
       if (building) building.classList.add('highlight');
     });
     item.addEventListener('mouseout', () => {
-      if (building) building.classList.remove('highlight');
+      if (building && building !== currentlyHighlighted) building.classList.remove('highlight');
     });
     item.addEventListener('click', () => {
       if (building) {
         showClassrooms(building);
       }
     });
-    // Make each building rectangle clickable
-    const buildings = document.querySelectorAll('.edificio-container');
+    
+  });
 
-    buildings.forEach(building => {
-      building.addEventListener('click', () => {
-      showClassrooms(building);
-      });
+  // Make each building rectangle clickable
+  const buildings = document.querySelectorAll('.edificio-container');
+
+  buildings.forEach(building => {
+    building.addEventListener('click', () => {
+    showClassrooms(building);
     });
   });
 
   function showClassrooms(buildingElement) {
     const panel = document.getElementById('classroomPanel');
+    // Eliminar resaltado anterior si existe
+if (currentlyHighlighted) {
+  currentlyHighlighted.classList.remove('highlight');
+}
+
+// Resaltar el edificio actual
+buildingElement.classList.add('highlight');
+currentlyHighlighted = buildingElement;
+
     const mapa = document.getElementById('mapa');
     const roomsContainer = panel.querySelector('.rooms');
 
@@ -72,13 +85,57 @@
 
   }
 
-  document.getElementById('closePanelBtn').addEventListener('click', () => {
-  const panel = document.getElementById('classroomPanel');
-  const mapa = document.getElementById('mapa');
-
-  //panel.style.display = 'none';
-  panel.classList.remove('visible'); // test Remove the visible class to hide the panel
-  mapa.style.transform = 'translateX(0)';
+  function searchBuilding(query) {
+    query = query.toLowerCase().trim();
+    let found = false;
+  
+    for (const id in buildingNames) {
+      const name = buildingNames[id].toLowerCase();
+      const number = id.replace('building-', '');
+  
+      if (name.includes(query) || number === query) {
+        const building = document.getElementById(id);
+        showClassrooms(building);
+        found = true;
+        break;
+      }
+    }
+  
+    if (!found) {
+      alert("Edificio no encontrado.");
+    }
+  }
+  
+  document.getElementById('searchBtn').addEventListener('click', () => {
+    const input = document.getElementById('searchInput');
+  const query = input.value;
+    searchBuilding(query);
+    input.value = '';
   });
+  
+  document.getElementById('searchInput').addEventListener('keydown', (e) => {
+    if (e.key === 'Enter') {
+      const input = document.getElementById('searchInput');
+    const query = input.value;
+      searchBuilding(query);
+      input.value = '';
+    }
+  });
+
+    document.getElementById('closePanelBtn').addEventListener('click', () => {
+    const panel = document.getElementById('classroomPanel');
+    const mapa = document.getElementById('mapa');
+
+    
+    
+    if (currentlyHighlighted) {
+      currentlyHighlighted.classList.remove('highlight');
+      currentlyHighlighted = null;
+    }
+    
+    //panel.style.display = 'none';
+    panel.classList.remove('visible'); // test Remove the visible class to hide the panel
+    mapa.style.transform = 'translateX(0)';
+    });
 
   
