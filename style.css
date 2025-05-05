@@ -184,3 +184,49 @@ background: darkred;
 #searchBtn:hover {
   background-color: #555;
 }
+@media screen and (max-width: 768px) {
+  body {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .mapa {
+    width: 95%;
+    left: 0;
+    margin-bottom: 20px;
+    transform: none !important; /* evita desplazamientos extra en móvil */
+  }
+
+  .classroom-panel {
+    width: 95%;
+    height: auto;
+    max-height: 300px;
+    overflow-y: auto;
+    position: static;
+    opacity: 1;
+    pointer-events: auto;
+  }
+
+  .search-bar {
+    flex-direction: column;
+    align-items: stretch;
+    top: auto;
+    bottom: 10px;
+    left: 10px;
+    right: 10px;
+    width: 90%;
+  }
+
+  .search-bar input,
+  .search-bar button {
+    width: 100%;
+    margin-bottom: 5px;
+  }
+
+  .legend {
+    position: static;
+    margin-top: 10px;
+    width: 95%;
+  }
+}
+
