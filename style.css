@@ -184,6 +184,8 @@ background: darkred;
 #searchBtn:hover {
   background-color: #555;
 }
+
+/* last addition */
 @media screen and (max-width: 768px) {
   body {
     flex-direction: column;
