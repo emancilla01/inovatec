@@ -24,8 +24,9 @@ body {
   background-color: #f4ff56;
   color: black;
   font-weight: bold;
+  font-size: 11px;
   text-align: center;
-  line-height: 45px;
+  line-height: normal;
   border: 2px solid #000;
   box-sizing: border-box;
   box-shadow: 2px 2px 5px rgba(0,0,0,0.3);
